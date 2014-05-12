@@ -7,10 +7,17 @@ define( 'CHILD_THEME_NAME', 'TODO' );
 define( 'CHILD_THEME_URL', 'http://www.joshmallard.com/' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
 
-//* Enqueue Lato Google font
-add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
-function genesis_sample_google_fonts() {
+add_action( 'wp_enqueue_scripts', 'enqueue_child_theme_scripts' );
+/**
+ * Enqueue scripts and fonts
+ *
+ * @since 1.0.0
+ */
+function enqueue_child_theme_scripts() {
+	
 	wp_enqueue_style( 'google-font-lato', '//fonts.googleapis.com/css?family=Lato:300,700', array(), CHILD_THEME_VERSION );
+	
+	wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/js/plugins.min.js', array( 'jquery' ), CHILD_THEME_VERSION );
 }
 
 //* Add HTML5 markup structure

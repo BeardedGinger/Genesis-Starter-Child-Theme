@@ -1,0 +1,130 @@
+/**
+ * Mobile Navigation
+ * 
+ * @link http://wpbacon.com/tutorials/genesis-responsive-menu-2-0/
+ * @since 1.0.0
+ */
+
+
+nav {
+	clear: both;
+}
+
+/* Navigation toggles
+--------------------------------------------- */
+
+.sub-menu-toggle,
+.menu-toggle {
+	display: none;
+	visibility: hidden;
+}
+
+/* Navigation toggles - Ensure Menu Displays when Scaled Up
+--------------------------------------------- */
+
+@media only screen and (min-width: 768px) {
+
+	nav {
+		display: block !important;
+	}
+}
+
+/* Navigation toggles - Mobile (Change max width as you see fit)
+--------------------------------------------- */
+
+@media only screen and (max-width: 767px) {
+
+	.menu-toggle,
+	.sub-menu-toggle {
+		display: block;
+		font-size: 20px;
+		font-size: 2rem;
+		font-weight: 700;
+		margin: 0 auto;
+		overflow: hidden;
+		padding: 20px;
+		padding: 2rem;
+		text-align: center;
+		visibility: visible;
+	}
+
+	button.menu-toggle,
+	button.sub-menu-toggle {
+		background-color: transparent;
+		color: lighten( $textColor, 10% );
+	}
+
+	.sub-menu-toggle {
+		padding: 18px;
+		padding: 1.8rem;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.menu-toggle:before {
+		content: "\2261";
+	}
+
+	.menu-toggle.activated:before {
+		content: "\2191";
+	}
+
+	.sub-menu-toggle:before {
+		content: "+";
+	}
+
+	.sub-menu-toggle.activated:before {
+		content: "-";
+	}
+
+	nav {
+		display: none;
+		position: relative;
+	}
+
+	.genesis-nav-menu .menu-item {
+		background-color: $background;
+		display: block;
+		position: relative;
+		text-align: left;
+	}
+
+	.genesis-nav-menu .menu-item:hover {
+		position: relative;
+	}
+
+	.genesis-nav-menu .sub-menu {
+		clear: both;
+		display: none;
+		opacity: 1;
+		position: static;
+		width: 100%;
+	}
+
+	.genesis-nav-menu .sub-menu a {
+		border-left: 0;
+		position: relative;
+		width: auto;
+	}
+
+	.genesis-nav-menu .sub-menu .sub-menu {
+		margin: 0;
+	}
+
+	.genesis-nav-menu .sub-menu .sub-menu a {
+		background-color: $background;
+		padding-left: 30px;
+	}
+
+	.genesis-nav-menu .sub-menu .sub-menu .sub-menu a {
+		background-color: $contentBackground;
+		padding-left: 40px;
+	}
+
+	.nav-primary a:hover,
+	.nav-primary .current-menu-item > a {
+		color: $mainColor;
+	}
+
+}
