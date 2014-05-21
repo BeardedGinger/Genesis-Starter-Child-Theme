@@ -38,7 +38,11 @@ module.exports = function(grunt) {
 		            'js/plugins.min.js': [
 		             	'assets/js/scripts.js',
 						'assets/js/mobile-nav.js'
-			            ]
+			        ],
+
+			        'js/plugins.home.min.js': [
+			        	'js/plugins.min.js'
+			        ]
 				}
 			}
 		}
