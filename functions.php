@@ -45,3 +45,17 @@ add_theme_support( 'custom-background' );
 
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
+
+add_filter( 'genesis_footer_creds_text', 'limecuda_footer_creds_text' );
+/**
+ * Filter the default credits to include LimeCuda branding and info.
+ *
+ * @since 1.0.0
+ */
+function limecuda_footer_creds_text() {
+	echo '<div class="creds"><p>';
+	echo 'Copyright &copy; ';
+	echo date('Y');
+	echo ' &middot; <a href="'. get_bloginfo( 'url' ) .'">' . get_bloginfo( 'name' ) . '</a> &middot; Website Development by <a href="http://limecuda.com" target="_blank" title="Strategic Website Development">LimeCuda</a>';
+	echo '</p></div>';
+}
