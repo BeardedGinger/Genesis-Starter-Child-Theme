@@ -45,3 +45,6 @@ add_theme_support( 'custom-background' );
 
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
+
+//* Allow shortcodes to be used in sidebar widgets
+add_filter('widget_text', 'do_shortcode');
