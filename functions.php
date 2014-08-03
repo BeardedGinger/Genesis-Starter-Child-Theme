@@ -4,7 +4,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'TODO' );
-define( 'CHILD_THEME_URL', 'http://www.joshmallard.com/' );
+define( 'CHILD_THEME_URL', 'http://www.limecuda.com/' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
 
 add_action( 'wp_enqueue_scripts', 'enqueue_child_theme_scripts' );
