@@ -46,6 +46,9 @@ add_theme_support( 'custom-background' );
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
 
+//* Add front-end styles to backend editor
+add_editor_style();
+
 //* Allow shortcodes to be used in sidebar widgets
 add_filter('widget_text', 'do_shortcode');
 
