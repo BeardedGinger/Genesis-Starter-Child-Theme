@@ -20,8 +20,6 @@ add_action( 'wp_enqueue_scripts', 'enqueue_child_theme_scripts' );
  */
 function enqueue_child_theme_scripts() {
 
-	wp_enqueue_style( 'google-font-lato', '//fonts.googleapis.com/css?family=Lato:300,700', array(), CHILD_THEME_VERSION );
-
 	if( WP_DEBUG ) {
 		wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ) );
 		wp_enqueue_script( 'mobile-nav', get_stylesheet_directory_uri() . '/assets/js/mobile-nav.js', array( 'jquery' ) );
@@ -32,6 +30,15 @@ function enqueue_child_theme_scripts() {
 			wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/js/plugins.min.js', array( 'jquery' ), CHILD_THEME_VERSION );
 		}
 	}
+}
+
+add_action( 'admin_enqueue_scripts', 'enqueue_needed_fonts' );
+add_action( 'wp_enqueue_scripts', 'enqueue_needed_fonts' );
+/**
+ * Enqueue the needed fonts on the front-end as well as the back for editor style support
+ */
+function enqueue_needed_fonts() {
+	wp_enqueue_style( 'google-font-lato', '//fonts.googleapis.com/css?family=Lato:300,700', array(), CHILD_THEME_VERSION );
 }
 
 //* Add HTML5 markup structure
@@ -45,6 +52,9 @@ add_theme_support( 'custom-background' );
 
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
+
+//* Force BFA local fallback
+add_filter( 'bfa_force_fallback', '__return_true' );
 
 //* Add front-end styles to backend editor
 add_editor_style();
